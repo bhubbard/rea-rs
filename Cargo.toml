@@ -1,0 +1,44 @@
+[package]
+name = "rea"
+version = "3.2.1"
+edition = "2021"
+authors = ["Brandon Hubbard <bhubbard@users.noreply.github.com>", "morluto"]
+description = "Pure Rust fork of REA (Reverse Engineer Anything): binary analysis engine & MCP server for AI agents"
+license = "MIT"
+repository = "https://github.com/bhubbard/rea-rs"
+readme = "README.md"
+keywords = ["reverse-engineering", "binary-analysis", "mcp-server", "agents", "disassembler"]
+categories = ["development-tools", "command-line-utilities"]
+
+[[bin]]
+name = "rea"
+path = "src/main.rs"
+
+[lib]
+name = "rea"
+path = "src/lib.rs"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive", "cargo"] }
+tokio = { version = "1.40", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+object = { version = "0.40", features = ["read", "all"] }
+iced-x86 = { version = "1.21", features = ["std", "decoder", "intel", "instr_info"] }
+rustc-demangle = "0.1"
+cpp_demangle = "0.4"
+sha2 = "0.10"
+hex = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
+colored = "3.0"
+uuid = { version = "1.10", features = ["v4", "serde"] }
+thiserror = "2.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+regex = "1.11"
+walkdir = "2.5"
+tempfile = "3.13"
+async-trait = "0.1"
+
+[dev-dependencies]
+tempfile = "3.13"
